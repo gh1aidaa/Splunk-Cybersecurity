@@ -1,0 +1,3 @@
+# SOC Overview Dashboard
+
+Shows failed logins, brute force attempts, and admin activity.

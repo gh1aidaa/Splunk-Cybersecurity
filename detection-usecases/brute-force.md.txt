@@ -1,0 +1,3 @@
+# Brute Force Attack Detection
+
+Detects multiple failed login attempts indicating a brute force attack.
