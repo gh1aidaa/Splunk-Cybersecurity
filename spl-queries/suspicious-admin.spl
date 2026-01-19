@@ -1,3 +1,2 @@
 index=security user=admin action=success
 | stats count by src_ip
-
