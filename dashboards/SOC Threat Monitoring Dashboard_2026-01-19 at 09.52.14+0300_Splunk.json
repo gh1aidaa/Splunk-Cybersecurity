@@ -1,0 +1,230 @@
+{
+  "visualizations": {
+    "viz_DkRts8Di": {
+      "type": "splunk.pie",
+      "options": {
+        "value": "> primary | seriesByName('count')"
+      },
+      "dataSources": {
+        "primary": "ds_Avy9LQRV"
+      }
+    },
+    "viz_c2w8sK3H": {
+      "type": "splunk.column",
+      "options": {
+        "y2": "> primary | frameBySeriesNames('_serial','_indextime')"
+      },
+      "dataSources": {
+        "primary": "ds_RwJ1XNQu"
+      }
+    },
+    "viz_I2UySGXj": {
+      "type": "splunk.bar",
+      "dataSources": {
+        "primary": "ds_2Kbe4F5x"
+      },
+      "options": {
+        "dataValuesDisplay": "minmax",
+        "seriesColors": [
+          "#294e70",
+          "#dc4e41",
+          "#5a4575",
+          "#DD9900",
+          "#FF677B",
+          "#CB2196",
+          "#813193",
+          "#0051B5",
+          "#008C80",
+          "#99B100",
+          "#FFA476",
+          "#FF6ACE",
+          "#AE8CFF",
+          "#00689D",
+          "#00490A",
+          "#465D00",
+          "#9D6300",
+          "#F6540B",
+          "#FF969E",
+          "#E47BFE"
+        ]
+      }
+    },
+    "viz_xVcx1oNS": {
+      "type": "splunk.singlevalue",
+      "options": {
+        "majorValue": "> sparklineValues | lastPoint()",
+        "trendValue": "> sparklineValues | delta(-2)",
+        "sparklineValues": "> primary | seriesByName('count')",
+        "unit": "Total Security Alerts (Last 24h)",
+        "majorFontSize": 35,
+        "trendFontSize": 7,
+        "sparklineDisplay": "off"
+      },
+      "dataSources": {
+        "primary": "ds_wUR44EXq"
+      },
+      "title": "Total Security Alerts (Last 24h)"
+    },
+    "viz_KSjOd0xA": {
+      "type": "splunk.area",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_h9BYKcu0"
+      }
+    }
+  },
+  "dataSources": {
+    "ds_Avy9LQRV": {
+      "type": "ds.savedSearch",
+      "options": {
+        "ref": "Windows Brute Force Detection",
+        "app": "search"
+      },
+      "name": "Windows Brute Force Detection"
+    },
+    "ds_RwJ1XNQu": {
+      "type": "ds.savedSearch",
+      "options": {
+        "ref": "XSS Attack Detection",
+        "app": "search"
+      },
+      "name": "XSS Attack Detection"
+    },
+    "ds_2Kbe4F5x": {
+      "type": "ds.savedSearch",
+      "options": {
+        "ref": "SQL Injection Detection",
+        "app": "search"
+      },
+      "name": "SQL Injection Detection"
+    },
+    "ds_wUR44EXq": {
+      "type": "ds.savedSearch",
+      "options": {
+        "ref": "Multiple Attacks from Same IP",
+        "app": "search"
+      },
+      "name": "Multiple Attacks from Same IP"
+    },
+    "ds_h9BYKcu0": {
+      "type": "ds.savedSearch",
+      "options": {
+        "ref": "Credential Compromise Detection",
+        "app": "search"
+      },
+      "name": "Credential Compromise Detection"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "ds.search": {
+        "options": {
+          "queryParameters": {
+            "latest": "$global_time.latest$",
+            "earliest": "$global_time.earliest$"
+          }
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "inputs": {
+    "input_global_trp": {
+      "type": "input.timerange",
+      "options": {
+        "token": "global_time",
+        "defaultValue": "-24h@h,now"
+      },
+      "title": "Global Time Range"
+    }
+  },
+  "layout": {
+    "options": {},
+    "globalInputs": [
+      "input_global_trp"
+    ],
+    "tabs": {
+      "items": [
+        {
+          "layoutId": "layout_1",
+          "label": "New tab"
+        },
+        {
+          "layoutId": "layout_KZ9KOFyP",
+          "label": "New tab"
+        }
+      ]
+    },
+    "layoutDefinitions": {
+      "layout_1": {
+        "type": "grid",
+        "structure": [],
+        "options": {
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "layout_KZ9KOFyP": {
+        "type": "grid",
+        "structure": [
+          {
+            "item": "viz_DkRts8Di",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "w": 1200,
+              "h": 400
+            }
+          },
+          {
+            "item": "viz_c2w8sK3H",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 400,
+              "w": 1200,
+              "h": 400
+            }
+          },
+          {
+            "item": "viz_I2UySGXj",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 800,
+              "w": 1200,
+              "h": 861
+            }
+          },
+          {
+            "item": "viz_xVcx1oNS",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 1661,
+              "w": 1200,
+              "h": 400
+            }
+          },
+          {
+            "item": "viz_KSjOd0xA",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 2061,
+              "w": 1200,
+              "h": 400
+            }
+          }
+        ]
+      }
+    }
+  },
+  "description": "",
+  "title": "SOC Threat Monitoring Dashboard"
+}
