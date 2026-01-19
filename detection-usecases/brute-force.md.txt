@@ -1,3 +1,10 @@
-# Brute Force Attack Detection
+# Brute Force Detection
 
-Detects multiple failed login attempts indicating a brute force attack.
+## Description
+Detects multiple failed login attempts from the same IP address.
+
+## Data Source
+Linux SSH authentication logs.
+
+## Detection Logic
+If the number of failed login attempts exceeds a defined threshold, it may indicate a brute force attack.

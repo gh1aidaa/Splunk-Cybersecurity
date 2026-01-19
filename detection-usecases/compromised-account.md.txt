@@ -1,3 +1,10 @@
 # Compromised Account Detection
 
-Identifies suspicious privileged account usage.
+## Description
+Identifies suspicious successful logins after multiple failures.
+
+## Data Source
+Windows authentication logs.
+
+## Detection Logic
+Multiple failed logins followed by a successful login may indicate account compromise.

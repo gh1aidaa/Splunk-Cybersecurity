@@ -1,3 +1,3 @@
-index=windows EventCode=4625
-| stats count by Account_Name
+index=security action=failed
+| stats count by user
 | where count > 5

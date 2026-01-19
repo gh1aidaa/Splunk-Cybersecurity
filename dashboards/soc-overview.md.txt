@@ -1,3 +1,5 @@
 # SOC Overview Dashboard
 
-Shows failed logins, brute force attempts, and admin activity.
+This dashboard provides a high-level overview of security activity, including authentication events, brute force attempts, and suspicious account behavior.
+
+It is designed to support SOC analysts in monitoring threats.
